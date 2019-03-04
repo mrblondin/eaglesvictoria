@@ -1,0 +1,6052 @@
+2018-09-26 21:08:55 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+2018-09-26 21:09:56 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-09-26 21:33:02 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-09-26 21:33:33 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-09-26 21:34:55 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-09-26 21:51:44 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-09-27 12:59:56 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-10-05 7:10:59 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-10-05 7:12:04 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-11-25 15:42:39 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-11-25 15:42:43 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-11-25 15:52:51 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------
+2018-11-25 15:52:53 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Customer Email Verification
+
+FILE: catalog/model/account/customer.php
+CODE: return $customer_id;
+LINE: 21
+----------------------------------------------------------------
+MOD: MagicToolbox mod for OpenCart
+
+FILE: catalog/controller/product/product.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/category.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/product/search.php
+CODE: <?php
+LINE: 37
+
+FILE: catalog/controller/common/column_left.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/column_right.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_bottom.php
+CODE: module->getModule($part[1]);
+LINE: 64
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/common/content_top.php
+CODE: if (isset($part[1]) && isset($setting[$part[1]])) {
+NOT FOUND - OPERATION SKIPPED!
+CODE: module->getModule($part[1]);
+LINE: 64
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/product.*?,\s+\$data\))(\);)~
+LINE: 490
+CODE: $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+LINE: 307
+CODE: _image_popup_height'));
+LINE: 294
+CODE: _image_popup_height')),
+LINE: 312
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/category.*?,\s+\$data\))(\);)~
+LINE: 416
+CODE: _image_product_height'));
+LINE: 206
+LINE: 209
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/manufacturer_(?:info|list).*?,\s+\$data\))(\);)~
+LINE: 91
+LINE: 378
+CODE: _image_product_height'));
+LINE: 195
+LINE: 198
+REGEX: ~(\$this->response->setOutput\()(\$this->load->view\(.*?product\/search.*?,\s+\$data\))(\);)~
+LINE: 494
+CODE: _image_product_height'));
+LINE: 232
+LINE: 235
+
+FILE: catalog/controller/common/header.php
+CODE: <?php
+LINE: 36
+CODE: return
+LINE: 122
+CODE: $this->load->view
+LINE: 126
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 96
+
+FILE: catalog/controller/extension/module/special.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 103
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: <?php
+LINE: 37
+REGEX: ~return\s+(.*?);~
+LINE: 106
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 53
+CODE: $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+LINE: 60
+CODE: $product_info = $this->model_catalog_product->getProduct($product_id);
+LINE: 59
+CODE: $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+LINE: 63
+
+FILE: admin/controller/extension/extension/module.php
+CODE: $data['extensions'][] = array(
+LINE: 165
+----------------------------------------------------------------
+MOD: MagicToolbox Video mod for OpenCart
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+LINE: 40
+CODE: <div class="tab-pane" id="tab-reward">
+LINE: 1056
+CODE: // Downloads
+LINE: 1270
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 107
+CODE: if (isset($data['product_related'])) {
+LINE: 275
+CODE: public function getTotalProductsByLayoutId($layout_id) {
+LINE: 801
+
+FILE: admin/controller/catalog/product.php
+CODE: // Downloads
+LINE: 1099
+
+FILE: catalog/model/catalog/product.php
+CODE: public function getProduct($product_id) {
+LINE: 7
+CODE: 'date_modified'    => $query->row['date_modified'],
+LINE: 52
+CODE: public function getTotalProductSpecials() {
+LINE: 552
+----------------------------------------------------------------
+MOD: MagicToolbox MagicZoomPlus mod for OpenCart
+
+FILE: admin/controller/common/column_left.php
+REGEX: ~if \(\$(extension|marketplace)\) {~
+LINE: 174
+----------------------------------------------------------------
+MOD: Rufus Visited Products
+CODE: public function index() {
+LINE: 49
+----------------------------------------------------------------
+MOD: Basel Theme
+CODE: $data['title'] = $this->document->getTitle();
+LINE: 67
+
+FILE: catalog/controller/common/footer.php
+CODE: $this->load->model('catalog/information');
+LINE: 11
+CODE: $data['products'] = array();
+LINE: 429
+CODE: $data['thumb'] = $
+LINE: 311
+CODE: 'thumb' => $
+LINE: 327
+CODE: $data['categories'][] = array(
+LINE: 190
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['categories'][] = array(
+LINE: 194
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 432
+LINE: 484
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 281
+CODE: 'thumb'       => $image,
+LINE: 309
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 509
+LINE: 585
+CODE: $this->load->model('catalog/product');
+LINE: 226
+LINE: 727
+CODE: if ((float)$result['special']) {
+LINE: 499
+CODE: 'thumb'       => $image,
+LINE: 527
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 89
+LINE: 384
+LINE: 438
+CODE: $this->load->model('catalog/product');
+LINE: 129
+CODE: if ((float)$result['special']) {
+LINE: 260
+CODE: 'thumb'       => $image,
+LINE: 286
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 494
+CODE: $this->load->model('catalog/product');
+LINE: 69
+CODE: if ((float)$result['special']) {
+LINE: 291
+CODE: 'thumb'       => $image,
+LINE: 317
+
+FILE: catalog/controller/product/special.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 268
+CODE: $this->load->model('catalog/product');
+LINE: 30
+CODE: if ((float)$result['special']) {
+LINE: 142
+CODE: 'thumb'       => $image,
+LINE: 170
+
+FILE: catalog/controller/information/contact.php
+CODE: $data['store'] = $this->config->get('config_name');
+LINE: 80
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: if ($query->row['query'] && $url[0]
+LINE: 52
+CODE: != 'category_id' && $url[0]
+LINE: 52
+CODE: $this->request->get['route'] = 'product/product';
+LINE: 72
+CODE: $this->request->get['route'] = 'product/category';
+LINE: 78
+CODE: ($data['route'] == 'information/information' && $key == 'information_id'))
+LINE: 99
+CODE: } elseif ($key == 'path') {
+LINE: 129
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: .val($(this).parent().find('input').val());
+LINE: 56
+
+FILE: admin/controller/design/layout.php
+CODE: design/layout_form
+LINE: 397
+CODE: if ($marketplace) {
+LINE: 266
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+CODE: $layout_id = 0;
+LINE: 17
+
+FILE: catalog/controller/extension/module/category.php
+CODE: if ($category['category_id'] == $data['category_id']) {
+LINE: 34
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: admin/model/customer/customer.php
+CODE: return $query->rows;
+LINE: 161
+CODE: public function addCustomer($data) {
+LINE: 7
+----------------------------------------------------------------
+MOD: Partial Payment Total Pro Advanced Plus
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 203
+
+FILE: catalog/controller/checkout/payment_method.php
+CODE: public function index() {
+LINE: 218
+CODE: $this->response->addHeader('Content-Type: application/json');
+LINE: 424
+
+FILE: catalog/model/extension/total/tax.php
+CODE: public function getTotal($total) {
+LINE: 29
+CODE: $total['total'] += $value;
+LINE: 42
+
+FILE: catalog/model/extension/total/sub_total.php
+CODE: $this->load->language('extension/total/sub_total');
+LINE: 28
+CODE: $total['total'] += $sub_total;
+LINE: 48
+
+FILE: catalog/controller/api/cart.php
+CODE: unset($this->session->data['shipping_method']);
+LINE: 37
+LINE: 84
+LINE: 123
+LINE: 162
+
+FILE: catalog/controller/api/order.php
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/api/payment.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 19
+LINE: 153
+LINE: 178
+LINE: 286
+CODE: unset($this->session->data['shipping_method']);
+LINE: 48
+LINE: 106
+LINE: 156
+LINE: 206
+CODE: unset($this->session->data['payment_method']);
+NOT FOUND - OPERATIONS ABORTED!
+CODE: unset($this->session->data['payment_method']);
+LINE: 30
+LINE: 175
+LINE: 211
+LINE: 330
+
+FILE: catalog/controller/checkout/cart.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 341
+LINE: 425
+LINE: 463
+CODE: unset($this->session->data['payment_method']);
+LINE: 215
+
+FILE: catalog/controller/account/logout.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 21
+
+FILE: catalog/controller/account/login.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 25
+
+FILE: catalog/controller/account/order.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 401
+
+FILE: catalog/controller/checkout/guest.php
+CODE: unset($this->session->data['payment_method']);
+LINE: 350
+
+FILE: catalog/view/theme/basel/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 775
+
+FILE: catalog/view/theme/default/template/checkout/checkout.twig
+CODE: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+LINE: 771
+
+FILE: catalog/view/theme/default/template/checkout/payment_method.twig
+CODE: {% if payment_methods %}
+LINE: 109
+CODE: $this->load->language('account/login');
+LINE: 66
+
+FILE: catalog/view/theme/basel/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 34
+
+FILE: catalog/view/theme/default/template/account/login.twig
+CODE: {% if error_warning %}
+LINE: 15
+
+FILE: admin/model/sale/order.php
+CODE: 'o.date_modified',
+LINE: 200
+CODE: $sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
+LINE: 150
+CODE: public function getOrders($data = array()) {
+LINE: 157
+
+FILE: admin/controller/sale/order.php
+CODE: public function index() {
+LINE: 12
+CODE: foreach ($results as $result) {
+LINE: 258
+CODE: 'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 277
+CODE: $data['order'] = $order;
+LINE: 426
+CODE: $data['sort_total'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . '&sort=o.total' . $url, true);
+LINE: 355
+CODE: $data['order'] = $order;
+LINE: 436
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+LINE: 137
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 164
+CODE: <div class="table-responsive">
+LINE: 104
+CODE: <div style="min-width: 120px;">
+LINE: 168
+CODE: {{ footer }}
+LINE: 377
+CODE: public function index() {
+LINE: 90
+
+FILE: catalog/model/account/order.php
+CODE: $query = $this->db->query("SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+LINE: 130
+CODE: $totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+LINE: 465
+CODE: $this->load->language('account/order');
+LINE: 15
+LINE: 113
+LINE: 200
+LINE: 537
+CODE: 'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+LINE: 174
+
+FILE: catalog/view/theme/basel/template/account/order_info.twig
+CODE: </tfoot>
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 199
+CODE: </table>
+LINE: 221
+
+FILE: catalog/view/theme/basel/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/account/order_list.twig
+CODE: <td class="text-right">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right hidden-xs hidden-sm">{{ column_total }}</td>
+LINE: 30
+CODE: <td class="text-right">{{ order.total }}</td>
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <td class="text-right">{{ order.total }}</td>
+LINE: 46
+CODE: <td class="text-right hidden-xs hidden-sm">{{ order.total }}</td>
+LINE: 46
+----------------------------------------------------------------

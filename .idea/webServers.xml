@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e1632fa2-d4d3-4309-999a-6ae02f914ced" name="eaglesvictoria.com" url="http://18.202.172.138">
+        <fileTransfer host="18.202.172.138" port="22" privateKey="$USER_HOME$/.ssh/eaglesvictoria.pem" rootFolder="/var/www/html/eaglesvictoria" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

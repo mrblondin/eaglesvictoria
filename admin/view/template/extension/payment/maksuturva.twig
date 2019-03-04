@@ -1,0 +1,167 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    {{ breadcrumb.separator }}<a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+    {% endfor %}
+  </div>
+  {% if error_warning %}
+  <div class="warning">{{ error_warning }}</div>
+  {% endif %}
+  <div class="box">
+    <div class="page-header">
+      <div class="container-fluid">
+        <div class="pull-right">
+          <button type="submit" form="form-payment" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+          <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+        <h1><i class="fa fa-credit-card"></i> {{ heading_title }}</h1>
+      </div>
+    </div>
+    <div class="container-fluid"><div class="panel-body">
+      <a target="_blank" href="{{ verify_link }}">{{ text_verify}}</a><br />
+      <a target="_blank" href="https://www.maksuturva.fi/extranet/PaymentEventInformation.xtnt">{{ text_kauppias}}</a><br />
+	  <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-payment">
+	    <table class="form">
+	      <tr>
+	        <td>{{ entry_sandbox }}</td>
+	        <td>
+			  <select name="payment_maksuturva_sandbox">
+	            <option value="1" {% if payment_maksuturva_sandbox %}selected="selected"{% endif %}>{{ text_yes }}</option>
+	            <option value="0" {% if not payment_maksuturva_sandbox %}selected="selected"{% endif %}>{{ text_no }}</option>
+	          </select>
+			</td>
+	      </tr>
+	      <tr>
+	        <td>{{ entry_emaksut }}</td>
+	        <td>
+			  <select name="payment_maksuturva_emaksut">
+	            <option value="0" {% if not payment_maksuturva_emaksut %}selected="selected"{% endif %}>{{ text_no }}</option>
+				<option value="1" {% if payment_maksuturva_emaksut %}selected="selected"{% endif %}>{{ text_yes }}</option>
+	          </select>
+			</td>
+	      </tr>	      
+	      <tr>
+	        <td>{{ entry_encoding }}</td>
+	        <td>
+			  <select name="payment_maksuturva_encoding">
+	            <option value="UTF-8" {% if payment_maksuturva_encoding  ==  "UTF-8" %}selected="selected"{% endif %}>UTF-8</option>
+				<option value="ISO-8859-1" {% if payment_maksuturva_encoding  ==  "ISO-8859-1" %}selected="selected"{% endif %}>ISO-8859-1</option>
+	          </select>
+			</td>
+	      </tr>	     
+	      <tr>
+	        <td>{{ entry_sellerid }}</td>
+	        <td><input type="text" name="payment_maksuturva_sellerid" value="{{ payment_maksuturva_sellerid }}" size="50%" />
+	          {% if error_sellerid %}
+	          <span class="error">{{ error_sellerid }}</span>
+	          {% endif %}</td>
+	      </tr>
+	      
+	      <tr>
+	        <td></span> {{ entry_secretkey }}</td>
+	        <td><input type="text" name="payment_maksuturva_secretkey" value="{{ payment_maksuturva_secretkey }}" size="50%" />
+	          {% if error_secretkey %}
+	          <span class="error">{{ error_secretkey }}</span>
+	          {% endif %}</td>
+	      </tr>
+	      
+	      <tr>
+	        <td><span class="required">*</span> {{ entry_keyversion }}</td>
+	        <td><input type="text" name="payment_maksuturva_keyversion" value="{{ payment_maksuturva_keyversion ? payment_maksuturva_keyversion : '001'}} " size="50%" /></td>
+	      </tr>
+
+	      <tr>
+	        <td><span class="required">*</span> {{ entry_url }}</td>
+	        <td><input type="text" name="payment_maksuturva_url" value="{{ payment_maksuturva_url ? payment_maksuturva_url : 'https://www.maksuturva.fi'}} " size="50%" /></td>
+	      </tr>
+
+          <tr>
+            <td>{{ entry_created }}</td>
+            <td><select name="payment_maksuturva_created">
+                {% for order_status in order_statuses %}
+	                {% if order_status.order_status_id  ==  payment_maksuturva_created %}
+	                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+	                {% else %}
+	                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+	                {% endif %}
+                {% endfor %} 
+              </select></td>
+          </tr>
+          <tr>
+            <td>{{ entry_completed }}</td>
+            <td><select name="payment_maksuturva_completed">
+                {% for order_status in order_statuses %}
+	                {% if order_status.order_status_id  ==  payment_maksuturva_completed %}
+	                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+	                {% else %}
+	                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+					{% endif %}
+				{% endfor %} 
+              </select></td>
+          </tr>
+          <tr>
+            <td>{{ entry_cancelled }}</td>
+            <td><select name="payment_maksuturva_cancelled">
+                {% for order_status in order_statuses %}
+	                {% if order_status.order_status_id  ==  payment_maksuturva_cancelled %}
+	                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+	                {% else %}
+	                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+					{% endif %} 
+				{% endfor %}
+              </select></td>
+          </tr>
+          <tr>
+            <td>{{ entry_error }}</td>
+            <td><select name="payment_maksuturva_error">
+                {% for order_status in order_statuses %}
+	                {% if order_status.order_status_id  ==  payment_maksuturva_error %}
+	                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+	                {% else %}
+	                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+					{% endif %} 
+				{% endfor %}
+
+              </select></td>
+          </tr>
+          <tr>
+            <td>{{ entry_delayed }}</td>
+            <td><select name="payment_maksuturva_delayed">
+                {% for order_status in order_statuses %}
+	                {% if order_status.order_status_id  ==  payment_maksuturva_delayed %}
+	                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+	                {% else %}
+	                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+					{% endif %} 
+				{% endfor %}
+              </select></td>
+          </tr>
+
+
+
+	      <tr>
+	        <td>{{ entry_status }}</td>
+	        <td>
+			  <select name="payment_maksuturva_status">
+	            {% if payment_maksuturva_status %}
+	            <option value="1" selected="selected">{{ text_enabled }}</option>
+	            <option value="0">{{ text_disabled }}</option>
+	            {% else %}
+	            <option value="1">{{ text_enabled }}</option>
+	            <option value="0" selected="selected">{{ text_disabled }}</option>
+				{% endif %} 
+	          </select>
+			</td>
+	      </tr>
+	      <tr>
+	        <td>{{ entry_sort_order }}</td>
+	        <td><input type="text" name="payment_maksuturva_sort_order" value="{{ payment_maksuturva_sort_order }}" size="1" /></td>
+	      </tr>
+	      
+	    </table>
+      </form>
+  </div>
+    </div>
+  </div>
+</div>
+{{ footer }} 

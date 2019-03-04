@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name><![CDATA[Currency Fixes]]></name>
+	<code>currency_fixes</code>
+	<version><![CDATA[3.0.0]]></version>
+	<author><![CDATA[The Krotek]]></author>
+	<link>https://thekrotek.com</link>
+	
+	<!-- System: Library -->
+	
+	<file path="system/library/cart/currency.php|system/library/currency.php">
+		<operation error="skip">
+			<search><![CDATA[$this->set($this->config->get('config_currency'));]]></search>
+			<add position="replace"><![CDATA[
+  			
+  			if ($this->config->get('config_store_currency')) {
+  				$this->set($this->config->get('config_store_currency'));
+  			} else {
+  				$this->set($this->config->get('config_currency'));
+  			}
+			
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search><![CDATA[class Currency {]]></search>
+			<add position="after"><![CDATA[
+  			
+  			public function getCodeById($id)
+  			{
+				foreach ($this->currencies as $code => $currency) {
+					if ($currency['currency_id'] == $id) return $code;
+				}
+  			}
+  			
+			]]></add>
+		</operation>				
+	</file>
+	
+	<!-- Admin: Currencies -->
+	
+	<file path="admin/model/localisation/currency.php">
+		<operation>
+			<search><![CDATA[extends Model {]]></search>
+			<add position="after"><![CDATA[
+
+			public function resetValues()
+			{
+				$this->db->query("UPDATE `".DB_PREFIX."currency` SET value = ''");
+				$this->db->query("UPDATE `".DB_PREFIX."currency` SET value = '1.00000' WHERE code = '".$this->db->escape($this->config->get('config_currency'))."'");
+			}
+			
+			]]></add>
+		</operation>		
+	</file>
+	
+	<!-- Admin: Settings -->
+	
+	<file path="admin/controller/setting/setting.php">
+		<operation>
+			<search><![CDATA[$this->model_setting_setting->editSetting('config', $this->request->post);]]></search>
+			<add position="after"><![CDATA[
+			
+			$this->config->set('config_currency', $this->request->post['config_currency']);
+			
+			if ($this->config->get('config_currency_auto')) {
+				$this->load->model('localisation/currency');
+				$this->model_localisation_currency->resetValues();
+				$this->model_localisation_currency->refresh(true);
+			}
+			
+			]]></add>
+		</operation>	
+		<operation>
+			<search><![CDATA[$this->load->language('setting/setting');]]></search>
+			<add position="after"><![CDATA[
+			
+			$data['entry_store_currency'] = $this->language->get('entry_store_currency');
+			$data['help_store_currency'] = $this->language->get('help_store_currency');
+			
+			if (isset($this->request->post['config_store_currency'])) {
+				$data['config_store_currency'] = $this->request->post['config_store_currency'];
+			} elseif ($this->config->get('config_store_currency')) {
+				$data['config_store_currency'] = $this->config->get('config_store_currency');
+			} elseif ($this->config->get('config_currency')) {
+				$data['config_store_currency'] = $this->config->get('config_currency');
+			} else {
+				$data['config_store_currency'] = "";
+			}
+						
+			]]></add>
+		</operation>
+	</file>
+	
+	<file path="admin/view/template/setting/setting.tpl">			
+		<operation error="skip">
+			<search><![CDATA[<?php echo $entry_currency_auto; ?></span></label>]]></search>
+			<add position="before" offset="1"><![CDATA[
+            
+            <div class="form-group">
+            	<label class="col-sm-2 control-label" for="input-store-currency">
+            		<span data-toggle="tooltip" title="<?php echo $help_store_currency; ?>"><?php echo $entry_store_currency; ?></span>
+            	</label>
+                <div class="col-sm-10">
+                	<select name="config_store_currency" id="input-store-currency" class="form-control">
+                    	<?php foreach ($currencies as $currency) { ?>
+                    		<option value="<?php echo $currency['code']; ?>"<?php echo ($currency['code'] == $config_store_currency ? ' selected="selected"' : ''); ?>><?php echo $currency['title']; ?></option>
+                    	<?php } ?>
+                  	</select>
+                </div>
+			</div>
+			              
+			]]></add>
+		</operation>
+	</file>
+		
+	<!-- Admin: Orders -->
+	
+	<file path="admin/controller/sale/order.php">				
+		<operation>
+			<search><![CDATA[$data['custom_fields'] = array();]]></search>
+			<add position="before"><![CDATA[
+			
+			$data['version_compare'] = version_compare(VERSION, '2.0.3.1', 'lt');
+			
+			$data['entry_update_currency'] = $this->language->get('entry_update_currency');
+			$data['help_update_currency'] = $this->language->get('help_update_currency');
+
+			if ($data['version_compare']) {
+				$data['entry_change_currency'] = $this->language->get('entry_change_currency');
+				$data['help_change_currency'] = $this->language->get('help_change_currency');
+			}
+			
+			$data['text_yes'] = $this->language->get('text_yes');
+			$data['text_no'] = $this->language->get('text_no');
+
+			$this->load->model('localisation/currency');
+			$data['currencies'] = $this->model_localisation_currency->getCurrencies();
+			
+			if (isset($this->request->post['currency_id'])) {
+				$data['currency_id'] = $this->request->post['currency_id'];
+			} elseif (!empty($order_info)) {
+				$data['currency_id'] = $order_info['currency_id'];
+			} else {
+				if ($this->config->get('config_store_currency')) {
+					$currency_id = $data['currencies'][$this->config->get('config_store_currency')]['currency_id'];
+				} else {
+					$currency_id = $data['currencies'][$this->config->get('config_currency')]['currency_id'];
+				}
+				
+				$data['currency_id'] = $currency_id;
+			}
+			
+			]]></add>
+		</operation>
+	</file>
+	
+	<file path="admin/view/template/sale/order_form.tpl">
+		<operation error="skip">
+			<search><![CDATA[<?php echo $affiliate_id; ?>]]></search>
+			<add position="after" offset="2"><![CDATA[
+
+			<?php if ($version_compare) { ?>
+            	<div class="form-group">
+            		<label class="col-sm-2 control-label" for="input-currency">
+                		<span data-toggle="tooltip" title="<?php echo $help_change_currency; ?>"><?php echo $entry_change_currency; ?></span>
+                	</label>
+                	<div class="col-sm-10">
+                  		<select name="currency_id" id="input-currency" class="form-control">
+                    		<?php foreach ($currencies as $currency) { ?>
+                    			<option value="<?php echo $currency['currency_id']; ?>"<?php echo ($currency['currency_id'] == $currency_id ? ' selected="selected"' : ''); ?>><?php echo $currency['title']; ?></option>
+                    		<?php } ?>
+                  		</select>
+                	</div>
+              	</div>
+            <?php } ?>
+            
+            <div class="form-group">
+            	<label class="col-sm-2 control-label">
+               		<span data-toggle="tooltip" title="<?php echo $help_update_currency; ?>"><?php echo $entry_update_currency; ?></span>
+               	</label>
+               	<div class="col-sm-10">
+               		<label class="radio-inline"><input type="radio" name="update_currency" value="1" /> <?php echo $text_yes; ?></label>
+                	<label class="radio-inline"><input type="radio" name="update_currency" value="0" checked="checked" /> <?php echo $text_no; ?></label>
+                	<?php if ($version_compare) { ?>
+                		<input type="hidden" name="currency_id" value="<?php echo $currency_id; ?>" />
+                	<?php } ?>
+              	</div>
+            </div>
+              
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search><![CDATA[, #tab-total input[name=\'affiliate_id\']'),]]></search>
+			<add position="replace"><![CDATA[, #tab-total input[name=\'update_currency\']:checked, #tab-total input[name=\'affiliate_id\']'),]]></add>
+		</operation>
+	</file>
+	
+	<!-- Admin: Language -->
+	
+	<file path="admin/language/*/*.php">
+		<operation error="skip">
+			<search><![CDATA[<?php]]></search>
+			<add position="after"><![CDATA[
+			
+			$_['entry_store_currency'] = "Store Currency";
+			$_['help_store_currency'] = "Main currency of your store frontend. May differ from default currency.";
+			
+			$_['entry_change_currency'] = "Change Currency";
+			$_['help_change_currency'] = "Will be changed, when you save the order.";
+			
+			$_['entry_update_currency'] = "Update Currency Value";
+			$_['help_update_currency'] = "Will be updated, when you save the order.";
+			
+			$_['button_update'] = "Update";
+									
+			]]></add>
+		</operation>
+	</file>
+
+	<!-- OpenCart 2.2 -->
+
+	<file path="catalog/controller/startup/startup.php">		
+		<operation error="skip">
+			<search><![CDATA[$code = $this->config->get('config_currency');]]></search>
+			<add position="replace"><![CDATA[
+  			
+  			if ($this->config->get('config_store_currency')) {
+  				$code = $this->config->get('config_store_currency');
+  			} else {
+  				$code = $this->config->get('config_currency');
+  			}
+			
+			]]></add>
+		</operation>
+	</file>
+		
+	<!-- Catalog: Order -->
+	
+	<file path="catalog/controller/api/order.php">
+		<operation>
+			<search><![CDATA[if (isset($this->request->post['affiliate_id'])) {]]></search>
+			<add position="before"><![CDATA[
+			
+			if (isset($this->request->post['currency_id'])) {
+				$order_data['currency_id'] = $this->request->post['currency_id'];
+			}
+			
+			if (isset($this->request->post['update_currency'])) {
+				$order_data['update_currency'] = $this->request->post['update_currency'];
+			}
+			
+			]]></add>
+		</operation>
+	</file>
+		
+	<file path="catalog/model/checkout/order.php">
+		<operation>
+			<search><![CDATA[extends Model {]]></search>
+			<add position="after"><![CDATA[
+			
+			public function updateOrderCurrency($order_id, $data)
+			{
+				$code = $this->currency->getCodeById($data['currency_id']);
+				$value = $this->currency->getValue($code);
+				$this->db->query("UPDATE `".DB_PREFIX."order` SET currency_id = '".$data['currency_id']."', currency_code = '".$code."', currency_value = '".$value."' WHERE order_id = '".$order_id."'");
+			}
+			
+			]]></add>
+		</operation>				
+		<operation>
+			<search><![CDATA[function editOrder($order_id, $data) {]]></search>
+			<add position="after"><![CDATA[
+			
+			if (isset($data['currency_id']) && $data['currency_id']) {
+				$order = $this->getOrder($order_id);
+				
+				if (($order['currency_id'] != $data['currency_id']) || (isset($data['update_currency']) && $data['update_currency'])) {
+					$this->updateOrderCurrency($order_id, $data);
+				}
+			}
+			
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- OpenCart 3 Compatibility -->
+	
+	<file path="admin/view/template/setting/setting.twig">
+		<operation error="skip">
+			<search><![CDATA[{{ entry_currency_auto }}]]></search>
+			<add position="before" offset="1"><![CDATA[
+            
+            <div class="form-group">
+            	<label class="col-sm-2 control-label" for="input-store-currency">
+            		<span data-toggle="tooltip" title="{{ help_store_currency }}">{{ entry_store_currency }}</span>
+            	</label>
+                <div class="col-sm-10">
+                	<select name="config_store_currency" id="input-store-currency" class="form-control">
+                    	{% for currency in currencies %}
+                    		<option value="{{ currency.code }}"{% if currency.code == config_store_currency %} selected="selected"{% endif %}>{{ currency.title }}</option>
+                    	{% endfor %}
+                  	</select>
+                </div>
+			</div>
+			              
+			]]></add>
+		</operation>
+	</file>
+	
+	<file path="admin/view/template/sale/order_form.twig">
+		<operation error="skip">
+			<search><![CDATA[{{ affiliate_id }}]]></search>
+			<add position="after" offset="2"><![CDATA[
+            
+            <div class="form-group">
+            	<label class="col-sm-2 control-label">
+               		<span data-toggle="tooltip" title="{{ help_update_currency }}">{{ entry_update_currency }}</span>
+               	</label>
+               	<div class="col-sm-10">
+               		<label class="radio-inline"><input type="radio" name="update_currency" value="1" /> {{ text_yes }}</label>
+                	<label class="radio-inline"><input type="radio" name="update_currency" value="0" checked="checked" /> {{ text_no }}</label>
+                	{% if version_compare %}
+                		<input type="hidden" name="currency_id" value="{{ currency_id }}" />
+                	{% endif %}
+              	</div>
+            </div>
+              
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search><![CDATA[, #tab-total]]></search>
+			<add position="replace"><![CDATA[, #tab-total input[name=\'update_currency\']:checked,]]></add>
+		</operation>
+	</file>
+			
+</modification>

@@ -1,0 +1,154 @@
+{{ header }}{{ column_left }}
+
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <button type="submit" form="form-module" data-toggle="tooltip" onclick="$('#svsty').val(1);" title="Save & Stay" class="btn btn-primary">Save & Stay</button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a> {{ text_extension_doc }}</div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module_custverf" class="form-horizontal">
+          <input type="hidden" name="svsty" id="svsty" />
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-tab1" data-toggle="tab">General</a></li>
+            <li><a href="#tab-tab2" data-toggle="tab">Admin Email Template</a></li>
+            <li><a href="#tab-tab3" data-toggle="tab">Thank You Page</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab-tab1">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-module_custverf_status">{{ entry_status }}</label>
+                <div class="col-sm-10">
+                  <select name="module_custverf_status" id="input-status" class="form-control">
+                     {% if module_custverf_status %}
+                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                    <option value="0">{{ text_disabled }}</option>
+                    {% else %}
+                    <option value="1">{{ text_enabled }}</option>
+                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                    {% endif %}
+                  </select>
+                </div>
+              </div>
+			  <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-module_custverf_approve_verified">{{ entry_approve_verified }}</label>
+                <div class="col-sm-10">
+                  <select name="module_custverf_approve_verified" id="input-approve_verified" class="form-control">
+                     {% if module_custverf_approve_verified %}
+                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                    <option value="0">{{ text_disabled }}</option>
+                    {% else %}
+                    <option value="1">{{ text_enabled }}</option>
+                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                    {% endif %}
+                  </select>
+                </div>
+              </div>
+              <div style="clear:both"></div>
+              <ul class="nav nav-tabs" id="language-tab1">
+                {% for language in languages %}
+                <li><a href="#language-tab1{{ language['language_id'] }}" data-toggle="tab"><img src="{{ language['imgsrc'] }}" title="{{ language['name'] }}" /> {{ language['name'] }}</a></li>
+                {% endfor %}
+              </ul>
+              <div class="tab-content">
+                {% for language in languages %}
+                <div class="tab-pane" id="language-tab1{{ language['language_id'] }}">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-verf_subject">{{ entry_verf_subject }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="module_custverf_verf_subject[{{ language['language_id'] }}]" placeholder="{{ entry_verf_subject }}" class="form-control" value="{% if module_custverf_verf_subject[language['language_id']] %} {{ module_custverf_verf_subject[language['language_id']] }} {% endif %}" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-verf_template">{{ entry_verf_template }}</label>
+                    <div class="col-sm-10">
+                      <textarea name="module_custverf_verf_template[{{ language['language_id'] }}]" placeholder="{{ entry_verf_template }}" data-toggle="summernote" data-lang="{{ summernote }}" class="form-control">{% if module_custverf_verf_template[language['language_id']] %} {{ module_custverf_verf_template[language['language_id']] }} {% endif %}</textarea>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-tab2">
+              <div style="clear:both"></div>
+              <ul class="nav nav-tabs" id="language-tab2">
+                {% for language in languages %}
+                <li><a href="#language-tab2{{ language['language_id'] }}" data-toggle="tab"><img src="{{ language['imgsrc'] }}" title="{{ language['name'] }}" /> {{ language['name'] }}</a></li>
+                {% endfor %}
+              </ul>
+              <div class="tab-content">
+                {% for language in languages %}
+                <div class="tab-pane" id="language-tab2{{ language['language_id'] }}">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-admin_verf_subject">{{ entry_admin_verf_subject }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="module_custverf_admin_verf_subject[{{ language['language_id'] }}]" placeholder="{{ entry_admin_verf_subject }}" class="form-control" value="{% if module_custverf_admin_verf_subject[language['language_id']] %} {{ module_custverf_admin_verf_subject[language['language_id']] }} {% endif %}" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-admin_verf_template">{{ entry_admin_verf_template }}</label>
+                    <div class="col-sm-10">
+                      <textarea name="module_custverf_admin_verf_template[{{ language['language_id'] }}]" placeholder="{{ entry_admin_verf_template }}" data-toggle="summernote" data-lang="{{ summernote }}" class="form-control">{% if module_custverf_admin_verf_template[language['language_id']] %} {{ module_custverf_admin_verf_template[language['language_id']] }} {% endif %}</textarea>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-tab3">
+              <div style="clear:both"></div>
+              <ul class="nav nav-tabs" id="language-tab3">
+                {% for language in languages %}
+                <li><a href="#language-tab3{{ language['language_id'] }}" data-toggle="tab"><img src="{{ language['imgsrc'] }}" title="{{ language['name'] }}" /> {{ language['name'] }}</a></li>
+                {% endfor %}
+              </ul>
+              <div class="tab-content">
+                {% for language in languages %}
+                <div class="tab-pane" id="language-tab3{{ language['language_id'] }}">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-thankyou_verf_template">{{ entry_thankyou_verf_template }}</label>
+                    <div class="col-sm-10">
+                      <textarea name="module_custverf_thankyou_verf_template[{{ language['language_id'] }}]" placeholder="{{ entry_thankyou_verf_template }}" data-toggle="summernote" data-lang="{{ summernote }}" class="form-control">{% if module_custverf_thankyou_verf_template[language['language_id']] %} {{ module_custverf_thankyou_verf_template[language['language_id']] }} {% endif %}</textarea>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+<link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
+<script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script> 
+<script type="text/javascript" src="view/javascript/summernote/opencart.js"></script> 
+
+<script type="text/javascript"><!--
+$('#language-tab1 a:first').tab('show');
+$('#language-tab2 a:first').tab('show');
+$('#language-tab3 a:first').tab('show');
+//--></script>
+{{ footer }}

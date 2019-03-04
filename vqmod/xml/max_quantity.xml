@@ -1,0 +1,515 @@
+<modification>
+	<id>Maximum Order Quantity and Stock Check</id>
+	<version>1.3</version>
+	<vqmver>1.2.3</vqmver>
+	<author>grgr</author>
+	
+	<file name="catalog/language/en-gb/checkout/cart.php">
+        <operation>
+            <search position="before"><![CDATA[
+$_['error_minimum']
+            ]]></search>
+            <add><![CDATA[
+$_['error_max_qty']   = 'Maximum Order Quantity for %s is %s!';
+$_['stock_error']   = 'We only have %s of %s in stock, please select fewer items.';
+$_['test_for_stock_error']   = 'We do not have enough stock for the %s in your cart, please update the quantity of this products in the shopping cart before adding more products, thankyou';
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/language/de-de/checkout/cart.php">
+        <operation>
+            <search position="before"><![CDATA[
+$_['error_minimum']
+            ]]></search>
+            <add><![CDATA[
+$_['error_max_qty']   = 'Maximum Order Quantity for %s is %s!';
+$_['stock_error']   = 'Dieser Artikel ist nicht mehr vorrätig (%s).';
+$_['test_for_stock_error']   = 'We do not have enough stock for the %s in your cart, please update the quantity of this products in the shopping cart before adding more products, thankyou';
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/language/ru-ru/checkout/cart.php">
+        <operation>
+            <search position="before"><![CDATA[
+$_['error_minimum']
+            ]]></search>
+            <add><![CDATA[
+$_['error_max_qty']   = 'Maximum Order Quantity for %s is %s!';
+$_['stock_error']   = 'Данного предмета нет в наличии (%s).';
+$_['test_for_stock_error']   = 'We do not have enough stock for the %s in your cart, please update the quantity of this products in the shopping cart before adding more products, thankyou';
+            ]]></add>
+        </operation>
+	</file>
+	
+	<file name="catalog/language/*/product/product.php">
+        <operation>
+            <search position="before"><![CDATA[
+$_['text_minimum']
+            ]]></search>
+            <add><![CDATA[
+$_['text_max_qty']      = 'This product has a maximum quantity of %s';
+            ]]></add>
+        </operation>
+	</file>
+	
+	<file name="admin/language/*/catalog/product.php">
+        <operation>
+            <search position="before"><![CDATA[
+$_['entry_minimum']
+            ]]></search>
+            <add><![CDATA[
+$_['entry_maximum']          = 'Maximum Quantity';
+$_['help_maximum']           = 'Force a maximum order amount.';
+$_['entry_stockcheck']       = 'Stock Check?';
+$_['help_stockcheck']        = 'Set to NO to disable the stock check feature for this product';
+            ]]></add>
+        </operation>
+	</file>
+	
+	<file name="admin/controller/catalog/product.php">
+		<operation>
+            <search position="before"><![CDATA[
+if (isset($this->request->post['minimum'])) {
+            ]]></search>
+            <add><![CDATA[
+		if (isset($this->request->post['maximum'])) {
+      		$data['maximum'] = $this->request->post['maximum'];
+    	} elseif (isset($product_info)) {
+      		$data['maximum'] = $product_info['maximum'];
+    	} else {
+			$data['maximum'] = 0;
+		}
+		
+		if (isset($this->request->post['stockcheck'])) {
+      		$data['stockcheck'] = $this->request->post['stockcheck'];
+    	} elseif (isset($product_info)) {
+      		$data['stockcheck'] = $product_info['stockcheck'];
+    	} else {
+			$data['stockcheck'] = 0;
+		}
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/model/catalog/product.php">	
+        <operation>
+            <search position="replace"><![CDATA[
+minimum = '" . (int)$data['minimum'] . "', 
+            ]]></search>
+            <add><![CDATA[
+minimum = '" . (int)$data['minimum'] . "', maximum = '" . (int)$data['maximum'] . "', stockcheck = '" . (int)$data['stockcheck'] . "', 
+            ]]></add>
+        </operation>
+	</file>
+	
+	<file name="admin/view/template/catalog/product_form.twig">
+        <operation>
+            <search position="before"><![CDATA[
+<label class="col-sm-2 control-label" for="input-minimum">
+            ]]></search>
+            <add><![CDATA[
+                <label class="col-sm-2 control-label" for="input-maximum"><span data-toggle="tooltip" title="{{ help_maximum }}">{{ entry_maximum }}</span></label>
+                <div class="col-sm-10">
+                  <input type="text" name="maximum" value="{{ maximum }}" placeholder="{{ entry_maximum }}" id="input-maximum" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_stockcheck }}">{{ entry_stockcheck }}</span></label>
+                <div class="col-sm-10">
+                  <label class="radio-inline">
+                    {% if stockcheck %}
+                    <input type="radio" name="stockcheck" value="1" checked="checked" />
+                    {{ text_yes }}
+                    {% else %}
+                    <input type="radio" name="stockcheck" value="1" />
+                    {{ text_yes }}
+                    {% endif %}
+                  </label>
+                  <label class="radio-inline">
+                    {% if not stockcheck %}
+                    <input type="radio" name="stockcheck" value="0" checked="checked" />
+                    {{ text_no }}
+                    {% else %}
+                    <input type="radio" name="stockcheck" value="0" />
+                    {{ text_no }}
+                    {% endif %}
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+            ]]></add>
+        </operation>
+	</file>
+	
+	<file name="catalog/controller/extension/basel/basel_features.php">
+	    <operation>
+            <search position="before"><![CDATA[
+if (isset($this->request->post['option'])) {
+            ]]></search>
+            <add><![CDATA[
+				$product_total = 0;
+				
+				$products = $this->cart->getProducts();
+				
+				foreach ($products as $product_2) {
+					if ($product_2['product_id'] == $this->request->post['product_id']) {
+						$product_total += $product_2['quantity'];
+					}
+				}
+			
+				if (($product_info['maximum']) > 0 && ($product_info['maximum']) < ($product_total + $quantity)) {
+					$json['error']['maximum'] = sprintf($this->language->get('error_max_qty'), $product_info['name'], $product_info['maximum']);
+				}
+				if (($product_info['minimum']) > 0 && ($product_info['minimum']) > ($product_total + $quantity)) {
+					$json['error']['warning'] = sprintf($this->language->get('error_minimum'), $product_info['name'], $product_info['minimum']);
+				}
+				
+            ]]></add>
+        </operation>
+        <operation>
+            <search position="before"><![CDATA[
+if (isset($this->request->post['option'])) {
+            ]]></search>
+            <add><![CDATA[
+				if (($product_info['maximum']) > 0 && ($product_info['maximum']) < ($product_total)) {
+					$data['error_warning'] = sprintf($this->language->get('error_max_qty'), $product_info['name'], $product_info['maximum']);
+				}
+            ]]></add>
+        </operation>
+	    <operation>
+            <search position="before"><![CDATA[
+if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
+            ]]></search>
+            <add><![CDATA[
+				if (($product_info['maximum']) > 0 && ($product_info['maximum']) < ($product_total + $quantity)) {
+					$json['error']['warning'] = sprintf($this->language->get('error_max_qty'), $product_info['name'], $product_info['maximum']);
+				}
+            ]]></add>
+        </operation>
+		<operation>
+			<search position="before" index="1"><![CDATA[
+if (!$json) {
+			]]></search>
+			<add><![CDATA[
+			if ($product_info['stockcheck']) {
+				$stock_test = $this->cart->testForStock();
+				$continue = true;
+
+				if (isset($stock_test['stock']) && $stock_test['stock'] == false) {
+					$json['error']['warning'] = sprintf($this->language->get('test_for_stock_error'), strtoupper($stock_test['name']));
+					$continue = false;
+				}
+					
+				if ($continue) {
+					$the_stock = array();
+					$option_test = false;
+					$original_cart = $this->cart->getOriginalCart();
+
+					$this->cart->add($this->request->post['product_id'], $quantity, $option);
+					
+					$qty = $this->cart->getProductStock($this->request->post['product_id'], $option);
+		
+					foreach ($qty as $qtys) {
+						if (isset($qtys['type'])) {
+							if ($qtys['type'] == 'select' || $qtys['type'] == 'radio' || $qtys['type'] == 'image' || $qtys['type'] == 'checkbox') {
+								$option_test = true;
+							}
+						}
+					}
+		
+					if ($this->cart->hasStock()== false) {
+						if ($option_test == true) {
+							foreach ($qty as $quantity) {
+					   
+								$the_stock[] = array (
+									'stock_name' => $quantity['option_value'],
+									'stock_quantity' => $quantity['quantity']
+								);
+							}
+							
+							foreach ($the_stock as $key => $row) {
+								$stock_name[$key] = $row['stock_name'];
+								$stock_quantity[$key] = $row['stock_quantity'];
+							}
+							array_multisort($stock_quantity, SORT_ASC, $the_stock);
+							
+							$fewest = reset($the_stock);
+							
+							$json['error']['warning'] = sprintf($this->language->get('stock_error'), $fewest['stock_quantity'], $fewest['stock_name']);
+							$this->session->data['stock_error']  = $json['error']['warning'];
+						} else {
+							$json['error']['warning'] = sprintf($this->language->get('stock_error'), $qty[0]['quantity'], $qty[0]['name']);
+							$this->session->data['stock_error']  = $json['error']['warning'];
+						}	
+					}
+
+					$this->cart->clear();
+					unset($this->session->data['stock_error']);
+					
+					foreach ($original_cart as $product) {
+						$this->cart->add($product['product_id'], $product['quantity'], json_decode($product['option']), $product['recurring_id']);
+					}
+				}
+			}
+			]]></add>
+		</operation>
+<!--
+	    <operation>
+            <search position="replace"><![CDATA[
+$this->cart->update($key, $value);
+	]]></search>
+            <add><![CDATA[
+
+				$prod_id = $this->cart->getProductId($key);
+				
+				$this->load->model('catalog/product');
+
+				$product_info = $this->model_catalog_product->getProduct($prod_id['product_id']);
+
+				if (($product_info['maximum']) > 0 && ($product_info['maximum']) < ($value)) {
+					$this->session->data['max_error'] = sprintf($this->language->get('error_max_qty'), $product_info['name'], $product_info['maximum']);
+				} else {
+					$this->cart->update($key, $value);
+				}
+            ]]></add>
+        </operation>
+-->
+<!--
+	    <operation>
+            <search position="before"><![CDATA[
+$data['action'] = $this->url->link
+	]]></search>
+            <add><![CDATA[
+			
+		if (isset($this->session->data['max_error'])) {
+			$data['error_max'] = $this->session->data['max_error'];
+			unset($this->session->data['max_error']);
+		} else {
+			$data['error_max'] = '';
+		}
+		
+            ]]></add>
+        </operation>
+-->
+	</file>
+	
+	<file name="catalog/controller/product/product.php">
+        <operation>
+            <search position="after"><![CDATA[
+			$data['text_minimum'] = sprintf($this->language->get('text_minimum'), $product_info['minimum']);
+            ]]></search>
+            <add><![CDATA[
+			$data['text_max_qty'] = sprintf($this->language->get('text_max_qty'), $product_info['maximum']);
+            ]]></add>
+        </operation>
+        <operation>
+            <search position="before"><![CDATA[
+			$data['review_status'] = $this->config->get('config_review_status');
+            ]]></search>
+            <add><![CDATA[
+			if ($product_info['maximum']) {
+				$data['maximum'] = $product_info['maximum'];
+			} else {
+				$data['maximum'] = 0;
+			}
+            ]]></add>
+        </operation>
+		<operation>
+			<search position="before"><![CDATA[
+if ($product_info['quantity'] <= 0) {
+			]]></search>
+			<add><![CDATA[
+			if (isset($this->session->data['stock_error'])) {
+				$data['stock_error'] = $this->session->data['stock_error'];
+				unset($this->session->data['stock_error']);
+			}]]>
+			</add>
+		</operation>
+	</file>
+		
+	
+	<file name="catalog/model/catalog/product.php">
+        <operation error="skip">
+            <search position="after" error="skip"><![CDATA[
+=> $query->row['minimum'],
+            ]]></search>
+            <add><![CDATA[
+'maximum'          => $query->row['maximum'],
+'stockcheck'       => $query->row['stockcheck'],
+            ]]></add>
+        </operation>
+	</file>
+		
+	<file name="catalog/view/theme/*/template/product/product.twig">
+        <operation>
+            <search position="before"><![CDATA[
+{% if minimum > 1 %}
+            ]]></search>
+            <add><![CDATA[
+            {% if maximum > 1 %}
+            <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_max_qty }}</div>
+            {% endif %}
+            ]]></add>
+        </operation>
+        <operation>
+            <search position="before"><![CDATA[
+if (json.error) {
+            ]]></search>
+            <add><![CDATA[
+			if (json['error']) {
+			
+				if (json['error']['warning']) {
+                    $('.table-cell').removeClass('has-error');
+                    $('.alert, .popup-note, .basel-spinner.ajax-call, .text-danger').remove();
+
+                    html = '<div class="popup-note">';
+                    html += '<div class="inner">';
+                    html += '<a class="popup-note-close" onclick="$(this).parent().parent().remove()">&times;</a>';
+                    html += '<div class="table">';
+                    html += '<div class="table-cell v-top">' + json['error']['warning'] + '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    $('body').append(html);
+				}
+				
+				if (json['error']['maximum']) {
+                    $('.table-cell').removeClass('has-error');
+                    $('.alert, .popup-note, .basel-spinner.ajax-call, .text-danger').remove();
+
+                    html = '<div class="popup-note">';
+                    html += '<div class="inner">';
+                    html += '<a class="popup-note-close" onclick="$(this).parent().parent().remove()">&times;</a>';
+                    html += '<div class="table">';
+                    html += '<div class="table-cell v-top">' + json['error']['maximum'] + '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    $('body').append(html);
+				}
+			}	 
+            ]]></add>
+        </operation>
+	</file>
+	
+	<file name="system/library/cart/cart.php">
+        <operation>
+            <search position="before"><![CDATA[
+public function hasDownload() {
+            ]]></search>
+            <add><![CDATA[
+  	public function getProductStock($product_id, $options) {
+
+		$product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.product_id = pd.product_id) WHERE p.product_id = '" . (int)$product_id . "' AND p.date_available <= NOW() AND p.status = '1'");
+		
+		$stock = array();
+				
+		if ($product_query->num_rows) {
+	
+			$option_data = array();
+			foreach ($options as $product_option_id => $option_value) {
+				$option_query = $this->db->query("SELECT po.product_option_id, po.option_id, od.name, o.type FROM " . DB_PREFIX . "product_option po LEFT JOIN `" . DB_PREFIX . "option` o ON (po.option_id = o.option_id) LEFT JOIN " . DB_PREFIX . "option_description od ON (o.option_id = od.option_id) WHERE po.product_option_id = '" . (int)$product_option_id . "' AND po.product_id = '" . (int)$product_id . "' AND od.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+				
+				if ($option_query->num_rows) {
+					if ($option_query->row['type'] == 'select' || $option_query->row['type'] == 'radio' || $option_query->row['type'] == 'image') {
+								$option_value_query = $this->db->query("SELECT pov.option_value_id, ovd.name, pov.quantity FROM " . DB_PREFIX . "product_option_value pov LEFT JOIN " . DB_PREFIX . "option_value ov ON (pov.option_value_id = ov.option_value_id) LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE pov.product_option_value_id = '" . (int)$option_value . "' AND pov.product_option_id = '" . (int)$product_option_id . "' AND ovd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+						
+						if ($option_value_query->num_rows) {
+							$stock[] = array(
+										'product_option_id'       => $product_option_id,
+										'product_option_value_id' => $option_value,
+										'option_id'               => $option_query->row['option_id'],
+										'option_value_id'         => $option_value_query->row['option_value_id'],
+										'name'                    => $option_query->row['name'],
+										'option_value'            => $option_value_query->row['name'],
+										'type'                    => $option_query->row['type'],
+										'quantity'                => $option_value_query->row['quantity']);
+						}
+								
+					} elseif ($option_query->row['type'] == 'checkbox' && is_array($option_value)) {
+						foreach ($option_value as $product_option_value_id) {
+									$option_value_query = $this->db->query("SELECT pov.option_value_id, ovd.name, pov.quantity FROM " . DB_PREFIX . "product_option_value pov LEFT JOIN " . DB_PREFIX . "option_value ov ON (pov.option_value_id = ov.option_value_id) LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE pov.product_option_value_id = '" . (int)$product_option_value_id . "' AND pov.product_option_id = '" . (int)$product_option_id . "' AND ovd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+									
+							if ($option_value_query->num_rows) {
+								$stock[] = array(
+											'product_option_id'       => $product_option_id,
+											'product_option_value_id' => $option_value,
+											'option_id'               => $option_query->row['option_id'],
+											'option_value_id'         => $option_value_query->row['option_value_id'],
+											'name'                    => $option_query->row['name'],
+											'option_value'            => $option_value_query->row['name'],
+											'type'                    => $option_query->row['type'],
+											'quantity'                => $option_value_query->row['quantity']);									
+							}
+						}						
+					} 
+				}
+			} 
+
+			if (!$stock) {
+				$stock[] = array(
+					'quantity'	=> $product_query->row['quantity'],
+					'name'		=> $product_query->row['name']);
+			}
+		}
+	return $stock;
+  	}
+	
+	public function testForStock() {
+		$return = array();
+		foreach ($this->getProducts() as $product) {
+			if (!$product['stock']) {
+				$return = array(
+					'stock' => false,
+					'pid' => $product['product_id'],
+					'name' => $product['name']
+				);
+				break;
+			}
+		}
+
+		return $return;
+	}
+	
+	public function getOriginalCart() {
+
+		$cart_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "cart WHERE customer_id = '" . (int)$this->customer->getId() . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "'");
+
+		return $cart_query->rows;
+	}
+	
+	public function getProductId($cartid) {
+
+		$query = $this->db->query("SELECT product_id FROM " . DB_PREFIX . "cart WHERE cart_id = '" . (int)$cartid . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "'");
+
+		return $query->row;
+	}
+            ]]></add>
+        </operation>
+        <operation>
+            <search position="after"><![CDATA[
+$product_query->row['minimum'],
+            ]]></search>
+            <add><![CDATA[
+        			'maximum'         => $product_query->row['maximum'],
+        			'stockcheck'      => $product_query->row['stockcheck'],
+            ]]></add>
+        </operation>
+	</file>
+	<file name="catalog/view/theme/*/template/checkout/cart.twig">
+        <operation>
+            <search position="before"><![CDATA[
+{% if error_warning %}
+            ]]></search>
+            <add><![CDATA[
+{% if error_max %}
+  <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_max  }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+{% endif %}
+            ]]></add>
+        </operation>
+	</file>
+</modification>

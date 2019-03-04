@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Rufus Visited Products</name>
+    <code>mymodule</code>
+    <version>1.0</version>
+    <author>RFusOlaXN,Rufus,RuslanNecik</author>
+    <file path="catalog/controller/product/product.php">
+        <operation>
+            <search><![CDATA[
+			public function index() {
+            ]]>
+			</search>
+            <add position="after"><![CDATA[
+			if(isset($this->session->data['products_id']))
+			{
+				if(!in_array($this->request->get['product_id'], $this->session->data['products_id']))
+					$this->session->data['products_id'][] = $this->request->get['product_id'];
+			}
+			else $this->session->data['products_id'][] = $this->request->get['product_id'];
+            ]]></add>
+        </operation>
+    </file>  
+</modification>

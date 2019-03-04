@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /*&limit
+Disallow: /*?sort
+Disallow: /*&sort
+Disallow: /*?route=checkout/
+Disallow: /*?route=account/
+Disallow: /*?route=product/search
+
+Sitemap: http://eaglesvictoria.com/index.php?route=extension/feed/google_sitemap

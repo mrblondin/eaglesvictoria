@@ -1,0 +1,28 @@
+{{ text_welcome }}<br/>
+
+{% if not approval %}
+{{ text_login }}<br/>
+
+{{ login }}<br/><br/>
+
+    Your username: {{ c_mail }}<br/>
+    Your password: the one you chose during registration<br/><br/>
+
+{{ text_service }}<br/><br/>
+
+{{ text_thanks }}<br/>
+{{ store }}
+{% else %}
+{{ text_approval }}<br/><br/>
+
+Your username: {{ c_mail }}<br/>
+Your password: the one you chose during registration<br/><br/>
+
+<b>Please verify your email address by clicking on link below:</b><br/>
+{{ custverlink }}<br/>
+    And then login using Your data.
+    <br/>
+    <br/>
+{{ text_thanks }}<br/>
+{{ store }}
+{% endif %}

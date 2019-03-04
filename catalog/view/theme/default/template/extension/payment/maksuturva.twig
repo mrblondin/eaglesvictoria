@@ -1,0 +1,17 @@
+{% if error_information %}
+<div class="error">{{ error_information }}</div>
+{% else %}
+	{% if text_information %}
+	<div class="information">{{ text_information }}</div>
+	{% endif %}
+	<form action="{{ action }}" method="post" id="maksuturva_payment">
+				{{ maksuturvaForm }}
+		
+	
+	</form>
+	
+	<div class="buttons">
+	  <div class="right"><a id="button-confirm" class="button" onclick="$('#maksuturva_payment').submit();"><span>{{ button_confirm }}</span></a></div>   
+	</div>
+
+{% endif %} 

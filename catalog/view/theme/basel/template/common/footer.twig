@@ -1,0 +1,187 @@
+<div class="container">
+  {{ position_bottom_half }}
+</div>
+<div class="container">
+  {{ position_bottom }}
+</div>
+<div id="footer">
+  <div class="container">
+    {% if footer_block_1 and footer_block_1 != '<p><br></p>' %}
+    <div class="footer-top-block">
+      {{ footer_block_1 }}
+    </div>
+    {% endif %}
+    <div class="row links-holder">
+      <div class="col-xs-12 col-sm-7">
+        <div class="row">
+          {% if custom_links %}
+          {% for column in basel_footer_columns %}
+          <div class="footer-column col-xs-12 col-sm-6 {{ basel_columns_count }} eq_height">
+            {% if column.title %}
+            <h5>{{ column.title }}</h5>
+            {% endif %}
+            {% if column.links is defined %}
+            <ul class="list-unstyled">
+              {% for link in column.links %}
+              <li><a href="{{ link.target }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          {% endfor %}
+          {% else %}
+          <div class="footer-column col-xs-12 col-sm-4 eq_height">
+            {# <h5>{{ text_account }}</h5> #}
+            <ul class="list-unstyled">
+              <li><a href="{{ account }}">{{ text_account }}</a></li>
+              <li><a href="{{ order }}">{{ text_order }}</a></li>
+              <li><a href="{{ return }}">{{ text_return }}</a></li>
+              <li class="is_wishlist"><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+              <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+            </ul>
+            <a href="https://www.instagram.com/eagles_victoria/" target="_blank"><img src="/image/instagram.png"/></a>
+            <a href="https://www.facebook.com/Eagles-Victoria-Military-Antique-2253096778255830/" target="_blank"><img src="/image/facebook.png"/></a>
+          </div>
+
+          <div class="footer-column col-xs-12 col-sm-4 eq_height">
+            {#<h5>{{ text_extra }}</h5>#}
+            <ul class="list-unstyled">
+              <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+              <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
+              <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+              <li><a href="{{ special }}">{{ text_special }}</a></li>
+              <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+            </ul>
+          </div>
+          {% if informations %}
+          <div class="footer-column col-xs-12 col-sm-4 eq_height">
+            {#<h5>{{ text_information }}</h5>#}
+            <ul class="list-unstyled">
+              {% for information in informations %}
+              <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+              {% endfor %}
+              <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+            </ul>
+          </div>
+          {% endif %}
+
+          <div class="footer-column col-xs-12 col-sm-4 eq_height">
+            {#<h5>Eagle's Victoria Oy</h5>#}
+            <ul class="list-unstyled">
+              <li><b>Eagle's Victoria Oy</b></li>
+              <li>Niittaajankatu 2 A<br/>00810 Helsinki, Finland</li>
+              <li>phone: +358 40 594 64 66</br>e-mail: info@eaglesvictoria.com</li>
+              <li>VAT FI18640479</li>
+            </ul>
+          </div>
+
+          {% endif %}
+        </div><!-- .row ends -->
+      </div><!-- .col-md-8 ends -->
+      <div class="footer-column col-xs-12 col-sm-2">
+        <div class="footer-custom-wrapper">
+          {% if footer_block_title is defined %}
+          <h5>{{ footer_block_title }}</h5>
+          {% endif %}
+          {% if footer_block_2 and footer_block_2 != '<p><br></p>' %}
+          <div class="custom_block">{{ footer_block_2 }}</div>
+          {% endif %}
+          {% if footer_infoline_1 is defined %}
+          <p class="infoline">{{ footer_infoline_1 }}</p>
+          {% endif %}
+          {% if footer_infoline_2 is defined %}
+          <p class="infoline">{{ footer_infoline_2 }}</p>
+          {% endif %}
+          {% if footer_infoline_3 is defined %}
+          <p class="infoline">{{ footer_infoline_3 }}</p>
+          {% endif %}
+          {% if payment_img %}
+          <img class="payment_img" src="{{ payment_img }}" alt="" />
+          {% endif %}
+        </div>
+      </div>
+      <div class="footer-column col-xs-12 col-sm-3">
+
+        <!-- BEGIN: Powered by Supercounters.com -->
+        <center><script type="text/javascript" src="//widget.supercounters.com/ssl/flag.js"></script><script type="text/javascript">sc_flag(1512436,"000000","ffffff","000000",2,10,0,0)</script><br><noscript><a href="http://www.supercounters.com/flagcounter">Free Flag Counter</a></noscript>
+        </center>
+        <!-- END: Powered by Supercounters.com -->
+
+      </div>
+
+      </div><!-- .row ends -->
+       <div id="logos_p">
+        <a href="https://www.ssls.com" target="_blank"><img src="/image/logo_ssl_small_32px.png"/></a>
+        <img src="/image/visa_40px.png"/>
+        <img src="/image/mastercard_40px.png"/>
+        <img src="/image/maestro_40px.png"/>
+        <img src="/image/visa_electron_40px.png"/>        
+        <img src="/image/amex.png"/>
+        <img src="/image/paypal_40px.png"/>
+        <a href="https://www.maksuturva.fi/en" target="_blank"><img src="/image/logo_maksuturva_small_30px.png"/></a>
+        <a href="https://www.posti.fi" target="_blank"><img src="/image/posti-50_30px.png"/></a>
+        <a href="https://www.tnt.com" target="_blank"><img src="/image/logo_tnt_small_30px.png"/></a>
+        <!-- Yandex.Metrika informer -->
+        <a href="https://metrika.yandex.com/stat/?id=49961161&amp;from=informer"
+        target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/49961161/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+        style="width:88px; height:31px; border:0;" alt="Yandex.Metrica" title="Yandex.Metrica: data for today (page views, visits and unique users)" class="ym-advanced-informer" data-cid="49961161" data-lang="en" /></a>
+        <!-- /Yandex.Metrika informer --></div>
+      <div class="row" style="margin-bottom: 8px">
+        {% if basel_copyright %}
+        <div class="col-xs-12 col-sm-6 eq_height" class="footer-copyright">{{ basel_copyright }}</div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-6 eq_height" id="developer">Web: <a target="_blank" href="http://usmanov.io">Dmitriy Usmanov</a></div>
+      </div>
+    </div>
+  </div>
+  <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="catalog/view/theme/basel/js/lightgallery/css/lightgallery.css" rel="stylesheet" />
+  <script defer src="catalog/view/theme/basel/js/jquery.matchHeight.min.js"></script>
+  <script defer src="catalog/view/theme/basel/js/countdown.js"></script>
+  <script defer src="catalog/view/theme/basel/js/live_search.js"></script>
+  <script defer src="catalog/view/theme/basel/js/featherlight.js"></script>
+  {% if view_popup %}
+  <!-- Popup -->
+  <script>
+    $(document).ready(function() {
+      if ($(window).width() > {{ popup_width_limit }}) {
+        setTimeout(function() {
+          $.featherlight({ajax: 'index.php?route=extension/basel/basel_features/basel_popup', variant:'popup-wrapper'});
+        }, {{ popup_delay }});
+      }
+    });
+  </script>
+  {% endif %}
+  {% if sticky_columns %}
+  <!-- Sticky columns -->
+  <script>
+    $(document).ready(function() {
+      if ($(window).width() > 767) {
+        $('#column-left, #column-right').theiaStickySidebar({containerSelector:$(this).closest('.row'),additionalMarginTop:{{ sticky_columns_offset }}});
+      }
+    });
+  </script>
+  {% endif %}
+  {% if view_cookie_bar %}
+  <!-- Cookie bar -->
+  <div class="basel_cookie_bar">
+    <div class="table">
+      <div class="table-cell w100">{{ basel_cookie_info }}</div>
+      <div class="table-cell button-cell">
+        <a class="btn btn-tiny btn-light-outline" onclick="$(this).parent().parent().parent().fadeOut(400);">{{ basel_cookie_btn_close }}</a>
+        {% if href_more_info is defined %}
+        <a class="more-info anim-underline light" href="{{ href_more_info }}">{{ basel_cookie_btn_more_info }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+BASEL VERSION {{ basel_version }} - OPENCART VERSION 3 ({{ VERSION }}) 
+//-->
+</div><!-- .outer-container ends -->
+<a class="scroll-to-top primary-bg-color hidden-sm hidden-xs" onclick="$('html, body').animate({scrollTop:0});"><i class="icon-arrow-right"></i></a>
+<div id="featherlight-holder"></div>
+</body></html>

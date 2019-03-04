@@ -1,0 +1,149 @@
+{% if error_warning %}
+<div class="alert alert-warning alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+{% endif %}
+
+			{% if (total_partial_payment_total_status and status and vouchers is empty) %} 
+			<!-- drop-down percent begin-->
+			{% if (status_percent_dd and total_partial_payment_total_dd_select and total_partial_payment_total_status and (total_partial_payment_total_total <= total) and status and vouchers is empty) %} 
+			 <p>{{ text_partial }}</p>
+			<div class="col-sm-4 dropdown-toggle">
+			<label>
+        <select id="partial_dd" input type="option" name="total_partial_payment_total_percent_dd" class="form-control" value="{{ total_partial_payment_total_percent_dd }}"> 
+		<option  value="0">{{ text_full_checkout }}</option>
+          {% for percent_dd in percents_dd %} 
+		 {% if total_partial_payment_total_percent_dd == percent_dd %}
+          <option value="{{ percent_dd }}" selected="selected">{{ text_partial_dd }} {{ percent_dd }}%</option>
+		  {% else %}
+		  <option value="{{ percent_dd }}">{{ text_partial_dd }} {{ percent_dd }}%</option> 
+		  {% endif %} 
+          {% endfor %} 
+        </select>
+		
+			
+      </label></div><div class="clearfix"></div>
+         <!-- drop-down percent end--> 
+		
+            {% elseif (total_partial_payment_total_status and (total_partial_payment_total_total <= total) and status and status_percent and vouchers is empty) %} 
+<p>{{ text_partial }}</p>
+    <div class="radio">
+      <label>
+        {% if (not partial_payment_total) %} 
+        <input type="radio" name="partial_payment_total" value="0" checked="checked" />
+        {% else %} 
+        <input type="radio" name="partial_payment_total" value="0" />
+        {% endif %} 
+        {{ text_full_checkout }}</label>
+    </div>
+    
+    <div class="radio">
+      <label>
+        {% if (partial_payment_total) %} 
+        <input type="radio" name="partial_payment_total" value="1" checked="checked" />
+        {% else %} 
+        <input type="radio" name="partial_payment_total" value="1" />
+        {% endif %} 
+        {{ text_partial_checkout }}</label>
+    </div>
+    {% endif %} 
+      
+	  
+	<!-- drop-down period begin-->
+	{% if (periods) %}
+			 <div style="display:none;" id="period" class="col-sm-4 dropdown-toggle">
+			  
+			  <p>{{ text_period }}</p>
+		<label> 
+		<select input type="option" name="total_partial_payment_total_period" class="form-control" value="{{ total_partial_payment_total_period }}"> 
+		<option value="0">{{ text_select_period }}</option>
+          {% for period in periods %}
+		 {% if total_partial_payment_total_period == period.period_id  %}
+          <option value="{{ period.period_id }}" selected="selected">{{ period.name }}</option>
+		  {% else %}
+		  <option value="{{ period.period_id }}">{{ period.name }}</option>
+		  {% endif %} 
+          {% endfor %}
+        </select>
+      </label>
+	  
+	  </div> <div class="clearfix"></div>
+	  {% endif %}
+         {% endif %}
+		 
+		 <!-- drop-down periodt end-->
+		 
+		<script type="text/javascript"><!--
+ $(document).ready(function(){
+	var	val1 = '{{ total_partial_payment_total_percent_dd }}';
+		//var val1 = $('select[name="total_partial_payment_total_percent_dd"]').val();
+		//var val2 = $('input[name="partial_payment_total"]:checked').val();
+	var val2 = '{{ partial_payment_total }}';
+		/**/
+ if (val1 != '0' && val1 != '') {
+ 		$("#period").show();
+		}
+	$("#partial_dd").on('change', function() {
+      if ( this.value > '0')
+      {
+        $("#period").show();
+      }
+      else
+      {
+        $("#period").hide();
+      }
+    });
+ 	if (val2 != '0' && val2 != '') {
+ 		$("#period").show();
+	  }
+	$('input[name=\'partial_payment_total\']:radio').change(function(event) {
+      if ( this.value > '0')
+      {
+        $("#period").show();
+	  }
+      else
+      {
+	    $("#period").hide();
+      }
+    });
+});
+//--></script>
+	  
+{% if payment_methods %}
+<p>{{ text_payment_method }}</p>
+{% for payment_method in payment_methods %}
+<div class="radio">
+  <label>{% if payment_method.code == code or not code %}
+    {% set code = payment_method.code %}
+    <input type="radio" name="payment_method" value="{{ payment_method.code }}" checked="checked" />
+    {% else %}
+    <input type="radio" name="payment_method" value="{{ payment_method.code }}" />
+    {% endif %}
+    {{ payment_method.title }}
+    {% if payment_method.terms %}
+    ({{ payment_method.terms }})
+    {% endif %} </label>
+</div>
+{% endfor %}
+{% endif %}
+<p><strong>{{ text_comments }}</strong></p>
+<p>
+  <textarea name="comment" rows="8" class="form-control">{{ comment }}</textarea>
+</p>
+{% if text_agree %}
+<div class="buttons">
+  <div class="pull-right">{{ text_agree }}
+    {% if agree %}
+    <input type="checkbox" name="agree" value="1" checked="checked" />
+    {% else %}
+    <input type="checkbox" name="agree" value="1" />
+    {% endif %}
+    &nbsp;
+    <input type="button" value="{{ button_continue }}" id="button-payment-method" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
+  </div>
+</div>
+{% else %}
+<div class="buttons">
+  <div class="pull-right">
+    <input type="button" value="{{ button_continue }}" id="button-payment-method" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
+  </div>
+</div>
+{% endif %} 

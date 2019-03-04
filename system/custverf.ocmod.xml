@@ -1,0 +1,15 @@
+<modification>
+	<name>Customer Email Verification</name>
+    <version>2.X - 3.X</version>
+    <link>http://www.opencarttools.net</link>
+    <author>opencarttools@gmail.com</author>
+    <code>31650</code> 	
+	
+	<file path="catalog/model/account/customer.php">
+        <operation error="skip">
+            <search position="replace"><![CDATA[return $customer_id;]]></search>
+			<add position="replace"><![CDATA[$data['custverfmodule'] = (substr(VERSION,0,3) >='3.0' || substr(VERSION,0,3) =='2.3') ? $this->load->controller('extension/module/custverf', $customer_id) : $this->load->controller('module/custverf', $customer_id);
+			return $customer_id;]]></add> 
+        </operation> 			
+ 	</file>
+</modification>

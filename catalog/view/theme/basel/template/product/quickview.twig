@@ -1,0 +1,158 @@
+<div class="table product-info quickview-info hidden-xs" style="height:{{ img_h }}px; width:980px;">
+     
+     <div class="table-cell left" style="padding-bottom:0;">
+     
+     {% if thumb or images %}
+     <div class="image-area" id="gallery" style="position:relative;">
+            
+        {% if thumb %}
+        <div class="main-image qv_image carousel" style="width:{{ img_w }}px;">
+        <img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" />
+        
+        {% if images %}
+        {% for image in images %}
+        <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" />
+        {% endfor %}
+        {% endif %}
+        
+        </div>
+        {% endif %}
+            
+     </div> <!-- .table-cell.left ends -->
+     {% endif %}
+      
+     </div> <!-- .image-area ends -->
+
+    <div class="table-cell w100 right">
+	<div class="inner">
+    
+    <div class="product-h1">
+    <h1>{{ heading_title }}</h1>
+    </div>
+    
+    {% if review_status and (review_qty > 0) %}
+    <div class="rating">
+    <span class="rating_stars rating r{{ rating }}">
+    <i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+    </span>
+    </div>
+    <span class="review_link">(<a class="hover_uline to_reviews" href="{{ product_href }}">{{ reviews }}</a>)</span>
+	{% endif %}
+
+    {% if price %}
+      <ul class="list-unstyled price">
+        {% if not special %}
+        <li>{{ price }}</li>
+        {% else %}
+        <li><span class="price-old">{{ price }}</span>{{ special }}</li>
+        {% endif %}
+      </ul>
+        
+        {% if discounts %}
+        <p class="discount">
+        {% for discount in discounts %}
+        <span>{{ discount.quantity }}{{ text_discount }}<i class="price">{{ discount.price }}</i></span>
+        {% endfor %}
+        </p>
+        {% endif %}
+      
+      {% endif %} <!-- if price ends -->
+      
+      
+      {% if meta_description_status and meta_description %}
+      <p class="meta_description">{{ meta_description }}</p>
+      {% endif %}
+      
+      <div id="product" class="{{ stock_status }}">
+
+          {% if stock_status == 'Hold' %}
+              {% set button_cart = basel_text_hold %}
+          {% endif %}
+
+                        
+       <div class="form-group buy catalog_hide">
+		{% if options or recurrings %}
+          <a href="{{ product_href }}" class="btn btn-primary">{{ basel_text_select_option }}</a>
+          {% else %}
+          <input step="1" min="{{ minimum }}" type="number" name="quantity" value="{{ minimum }}" class="input-quantity" id="input-quantity" class="form-control" />
+          <input type="hidden" name="product_id" value="{{ product_id }}" />
+          <button type="button" onclick="cart.add('{{ product_id }}', $('#input-quantity').val(), 'qv')" class="btn btn-primary">{% if ((qty < 1) and (stock_badge_status)) %}{{ basel_text_out_of_stock }}{% else %}{{ button_cart }}{% endif %}</button>
+          {% endif %}
+          
+          <a href="{{ product_href }}" class="btn btn-outline details">{{ basel_text_view_details }}</a>
+          
+            </div>
+            {% if minimum > 1 %}
+            <div class="alert alert-sm alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>
+            {% endif %}
+          
+          </div><!-- #product ends -->
+
+    
+    <div class="info-holder">
+    
+      {% if price and tax %}
+      <p class="info p-tax"><b>{{ text_tax }}</b> {{ tax }}</p>
+      {% endif %}
+      
+      {% if price and points %}
+      <p class="info"><b>{{ text_points }}</b> {{ points }}</p>
+      {% endif %}
+      
+      <p class="info {% if qty > 0 %}in_stock"{% endif %}"><b>{{ text_stock }}</b> {{ stock }}</p>
+      
+      {% if manufacturer %}
+      <p class="info"><b>{{ text_manufacturer }}</b> <a class="hover_uline" href="{{ manufacturers }}">{{ manufacturer }}</a></p>
+      {% endif %}
+      
+      <p class="info"><b>{{ text_model }}</b> {{ model }}</p>
+      
+      {% if reward %}
+      <p class="info"><b>{{ text_reward }}</b> {{ reward }}</p>
+      {% endif %}
+      
+      
+      {% if basel_share_btn %}
+      <p class="info share"><b>Share:</b> 
+        <a class="single_share fb_share external" rel="nofollow"><i class="fa fa-facebook"></i></a>
+        <a class="single_share twitter_share external" rel="nofollow"><i class="fa fa-twitter"></i></a>
+        <a class="single_share google_share external" rel="nofollow"><i class="icon-google-plus"></i></a>
+        <a class="single_share pinterest_share external" rel="nofollow"><i class="fa fa-pinterest"></i></a>
+        <a class="single_share vk_share external" rel="nofollow"><i class="fa fa-vk"></i></a>
+      </p>
+      {% endif %}
+     
+     </div> <!-- .info-holder ends -->
+     
+	 </div> <!-- .inner ends -->
+     </div> <!-- .table-cell.right ends -->
+    
+
+<script>
+$('.qv_image').slick({
+{% if direction == 'rtl' %}
+rtl: true,
+{% endif %}
+prevArrow: "<a class=\"arrow-left within icon-arrow-left\"></a>",
+nextArrow: "<a class=\"arrow-right within icon-arrow-right\"></a>",
+arrows:true
+});
+// Sharing buttons
+var share_url = encodeURIComponent('{{ product_href }}');
+var page_title = '{{ heading_title }}';
+{% if thumb %}
+var thumb = '{{ thumb }}';
+{% endif %}
+$('.fb_share').attr("href", 'https://www.facebook.com/sharer/sharer.php?u=' + share_url + '');
+$('.twitter_share').attr("href", 'https://twitter.com/intent/tweet?source=' + share_url + '&text=' + page_title + ': ' + share_url + '');
+$('.google_share').attr("href", 'https://plus.google.com/share?url=' + share_url + '');
+$('.pinterest_share').attr("href", 'http://pinterest.com/pin/create/button/?url=' + share_url + '&media=' + thumb + '&description=' + page_title + '');
+$('.vk_share').attr("href", 'http://vkontakte.ru/share.php?url=' + share_url + '');
+
+// Open external links in new tab //
+$('a.external').on('click',function(e){
+e.preventDefault();
+window.open($(this).attr('href'));
+});
+</script>
+</div> <!-- .product-info ends -->
