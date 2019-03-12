@@ -96,7 +96,7 @@
 				{% set button_cart = default_button_cart %}
 			{% endif %}
 
-                {% if product.stock_status == 'Hold' %}
+                {% if product.stock_status_id == 9 %}
                     <span class="badge {{ product.stock_status }}"><i>{{ basel_text_hold }}</i></span>
                     {% set button_cart = basel_text_hold %}
                 {% endif %}

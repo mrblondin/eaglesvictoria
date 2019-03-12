@@ -219,6 +219,7 @@ class ControllerExtensionModuleBaselProducts extends Controller {
 						'name'    	 => $result['name'],
 						'price'   	 => $price,
 						'stock_status'      => $result['stock_status'],
+						'stock_status_id'      => $result['stock_status_id'],
 						'new_label'  => $is_new,
 						'special' 	 => $special,
 						'tax'        => $tax,

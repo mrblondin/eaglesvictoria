@@ -4,7 +4,7 @@
 <div class="viewedproducts grid">
 <div class="viewed-wrapper grid-holder product-holder grid4">
 {% for product in products %}
-    <div class="item single-product product_{{ product.product_id  }} {{ product.stock_status }}">
+    <div class="item single-product product_{{ product.product_id  }} stock{{ product.stock_status_id }}">
         <div class="image" {% if columns == 'list' %}style="width:{{ img_width }}px"{% endif %}>
             <a href="{{ product.href }}">
                 <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" />
@@ -26,8 +26,8 @@
             {% else %}
                 {% set button_cart = default_button_cart %}
             {% endif %}
-            {% if product.stock_status == 'Hold' %}
-                <span class="badge {{ product.stock_status }}"><i>{{ basel_text_hold }}</i></span>
+            {% if product.stock_status_id == 9 %}
+                <span class="badge stock{{ product.stock_status_id }}"><i>{{ basel_text_hold }}</i></span>
                 {% set button_cart = basel_text_hold %}
             {% endif %}
             <a class="img-overlay" href="{{ product.href }}"></a>

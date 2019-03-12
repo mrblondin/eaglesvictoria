@@ -273,10 +273,10 @@ $(document).ready(function () {
     $('td.payment-method img').remove();
 
     //Hold button onclick remove
-    $(".single-product.Hold a[onclick^='cart']").each(function () {
+    $(".single-product.stock9 a[onclick^='cart']").each(function () {
         $(this).attr('onclick', '').css('cursor', 'auto');
     });
-    $("#content.Hold #button-cart").each(function () {
+    $("#content.stock9 #button-cart").each(function () {
         $(this).attr("disabled", "disabled").css('cursor', 'auto');
     });
 
@@ -302,7 +302,7 @@ var quickview = function (product_id) {
             $.featherlight(html);
 
             //Hold button onclick remove
-            $("#product.Hold button.btn-primary").each(function () {
+            $("#product.stock9 button.btn-primary").each(function () {
                 $(this).attr("disabled", "disabled").css('cursor', 'auto');
             });
 

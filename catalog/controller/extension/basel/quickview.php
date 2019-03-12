@@ -62,6 +62,7 @@ class ControllerExtensionBaselQuickview extends Controller {
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
             $data['stock_status'] = $product_info['stock_status'];
+            $data['stock_status_id'] = $product_info['stock_status_id'];
 
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];

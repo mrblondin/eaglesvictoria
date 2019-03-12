@@ -241,6 +241,7 @@ class ControllerProductProduct extends Controller {
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
             $data['stock_status'] = $product_info['stock_status'];
+            $data['stock_status_id'] = $product_info['stock_status_id'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
 			if ($product_info['quantity'] <= 0) {
@@ -415,6 +416,7 @@ class ControllerProductProduct extends Controller {
 					'product_id'  => $result['product_id'],
                     'model'  => $result['model'],
                     'stock_status'      => $result['stock_status'],
+                    'stock_status_id'      => $result['stock_status_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',

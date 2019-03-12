@@ -63,9 +63,9 @@
       <p class="meta_description">{{ meta_description }}</p>
       {% endif %}
       
-      <div id="product" class="{{ stock_status }}">
+      <div id="product" class="stock{{ stock_status_id }}">
 
-          {% if stock_status == 'Hold' %}
+          {% if stock_status_id == 9 %}
               {% set button_cart = basel_text_hold %}
           {% endif %}
 

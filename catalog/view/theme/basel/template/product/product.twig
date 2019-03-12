@@ -61,7 +61,7 @@
         {% else %}
             {% set class = 'col-sm-12' %}
         {% endif %}
-        <div id="content" class="product-main no-min-height {{ class }} {{ stock_status }}">
+        <div id="content" class="product-main no-min-height {{ class }} stock{{ stock_status_id }}">
             {{ content_top }}
 
             <div class="table product-info product-page">
@@ -89,8 +89,8 @@
                                     {% set button_cart = default_button_cart %}
                                 {% endif %}
 
-                                {% if stock_status == 'Hold' %}
-                                    <span class="badge {{ stock_status }}"><i>{{ basel_text_hold }}</i></span>
+                                {% if stock_status_id == 9 %}
+                                    <span class="badge stock{{ stock_status_id }}"><i>{{ basel_text_hold }}</i></span>
                                     {% set button_cart = basel_text_hold %}
                                 {% endif %}
 
