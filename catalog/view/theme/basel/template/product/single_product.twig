@@ -1,9 +1,9 @@
 <div class="item single-product product_{{ product.product_id }} stock{{ product.stock_status_id }}">
 <div class="image" {% if columns == 'list' %}style="width:{{ img_width }}px"{% endif %}>
     <a href="{{ product.href }}">
-    <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" />
+    <img data-src="{{ product.thumb }}" class="b-lazy" alt="{{ product.name }}" title="{{ product.name }}" />
     {% if product.thumb2 %}
-    <img class="thumb2" src="{{ product.thumb2 }}" alt="{{ product.name }}" title="{{ product.name }}" />
+    <img class="thumb2 b-lazy" data-src="{{ product.thumb2 }}" alt="{{ product.name }}" title="{{ product.name }}" />
     {% endif %}
     </a>
 {% if product.price and product.special and salebadge_status %}

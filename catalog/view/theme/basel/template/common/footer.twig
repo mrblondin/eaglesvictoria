@@ -39,8 +39,8 @@
               <li class="is_wishlist"><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
               <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
             </ul>
-            <a href="https://www.instagram.com/eagles_victoria/" target="_blank"><img src="/image/instagram.png"/></a>
-            <a href="https://www.facebook.com/Eagles-Victoria-Military-Antique-2253096778255830/" target="_blank"><img src="/image/facebook.png"/></a>
+            <a href="https://www.instagram.com/eagles_victoria/" target="_blank"><img class="b-lazy" data-src="/image/instagram.png"/></a>
+            <a href="https://www.facebook.com/Eagles-Victoria-Military-Antique-2253096778255830/" target="_blank"><img class="b-lazy" data-src="/image/facebook.png"/></a>
           </div>
 
           <div class="footer-column col-xs-12 col-sm-4 eq_height">
@@ -96,7 +96,7 @@
           <p class="infoline">{{ footer_infoline_3 }}</p>
           {% endif %}
           {% if payment_img %}
-          <img class="payment_img" src="{{ payment_img }}" alt="" />
+          <img class="b-lasy" class="payment_img" data-src="{{ payment_img }}" alt="" />
           {% endif %}
         </div>
       </div>
@@ -111,16 +111,16 @@
 
       </div><!-- .row ends -->
        <div id="logos_p">
-        <a href="https://www.ssls.com" target="_blank"><img src="/image/logo_ssl_small_32px.png"/></a>
-        <img src="/image/visa_40px.png"/>
-        <img src="/image/mastercard_40px.png"/>
-        <img src="/image/maestro_40px.png"/>
-        <img src="/image/visa_electron_40px.png"/>        
-        <img src="/image/amex.png"/>
-        <img src="/image/paypal_40px.png"/>
-        <a href="https://www.maksuturva.fi/en" target="_blank"><img src="/image/logo_maksuturva_small_30px.png"/></a>
-        <a href="https://www.posti.fi" target="_blank"><img src="/image/posti-50_30px.png"/></a>
-        <a href="https://www.tnt.com" target="_blank"><img src="/image/logo_tnt_small_30px.png"/></a>
+        <a href="https://www.ssls.com" target="_blank"><img class="b-lazy" data-src="/image/logo_ssl_small_32px.png"/></a>
+        <img class="b-lazy" data-src="/image/visa_40px.png"/>
+        <img class="b-lazy" data-src="/image/mastercard_40px.png"/>
+        <img class="b-lazy" data-src="/image/maestro_40px.png"/>
+        <img class="b-lazy" data-src="/image/visa_electron_40px.png"/>        
+        <img class="b-lazy" data-src="/image/amex.png"/>
+        <img class="b-lazy" data-src="/image/paypal_40px.png"/>
+        <a href="https://www.maksuturva.fi/en" target="_blank"><img class="b-lazy" data-src="/image/logo_maksuturva_small_30px.png"/></a>
+        <a href="https://www.posti.fi" target="_blank"><img class="b-lazy" data-src="/image/posti-50_30px.png"/></a>
+        <a href="https://www.tnt.com" target="_blank"><img class="b-lazy" data-src="/image/logo_tnt_small_30px.png"/></a>
         <!-- Yandex.Metrika informer -->
         <a href="https://metrika.yandex.com/stat/?id=49961161&amp;from=informer"
         target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/49961161/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
@@ -134,12 +134,13 @@
       </div>
     </div>
   </div>
-  <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="catalog/view/theme/basel/js/lightgallery/css/lightgallery.css" rel="stylesheet" />
+  <link defer href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link defer href="catalog/view/theme/basel/js/lightgallery/css/lightgallery.css" rel="stylesheet" />
   <script defer src="catalog/view/theme/basel/js/jquery.matchHeight.min.js"></script>
   <script defer src="catalog/view/theme/basel/js/countdown.js"></script>
   <script defer src="catalog/view/theme/basel/js/live_search.js"></script>
   <script defer src="catalog/view/theme/basel/js/featherlight.js"></script>
+  <script defer src="catalog/view/theme/basel/js/blazy.min.js"></script>
   {% if view_popup %}
   <!-- Popup -->
   <script>

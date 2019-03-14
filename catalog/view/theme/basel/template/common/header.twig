@@ -20,7 +20,7 @@
         <meta name="keywords" content="{{ keywords }}" />{% endif %}
     <!-- Load essential resources -->
     <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js"></script>
-    <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link defer href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <script defer src="catalog/view/javascript/bootstrap/js/bootstrap.min.js"></script>
     <script defer src="catalog/view/theme/basel/js/slick.min.js"></script>
     <script defer src="catalog/view/theme/basel/js/basel_common.js?8"></script>
@@ -30,7 +30,7 @@
     <style id="basel-mandatory-css">{{ basel_mandatory_css }}</style>
     <!-- Plugin Stylesheet(s) -->
     {% for style in styles %}
-        <link defer href="{{ style.href }}" rel="{{ style.rel }}" media="{{ style.media }}"/>
+       <!-- <link defer href="{{ style.href }}" rel="{{ style.rel }}" media="{{ style.media }}"/> -->
     {% endfor %}
     {% if direction == 'rtl' %}
         <link href="catalog/view/theme/basel/stylesheet/rtl.css" rel="stylesheet">
@@ -110,6 +110,26 @@
         gtag('js', new Date());
 
         gtag('config', 'AW-796342409');
+    </script>
+
+    <script type="text/javascript">
+        //Lazy Load for images
+        $(document).ready(function () {
+            //Slider for mobile devices should be removed
+            if( !$("#masterslider0").is(":visible") ){
+               //remove b-lazy
+               $("#masterslider0 .b-lazy").removeClass('b-lazy').removeAttr('data-src');
+               $("#masterslider0").remove();
+            }
+            var bLazy = new Blazy({
+                success: function(){
+                    $("a.patch:gt(0)").each(function() {
+                       var patchTopCss = ( $(this).height() - $(this).children("div").height())/2; 
+                       $(this).children("div").css("top", patchTopCss);
+                    });
+                }
+            });
+        });
     </script>
 </head>
 <body class="{{ class }}{{ basel_body_class }} {{ islog }}">

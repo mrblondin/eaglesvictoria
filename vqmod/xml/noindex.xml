@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>Robot noindex</name>
+	<code>ox_robot_noindex</code>
+	<version>2.1.1</version>
+	<ocversion>3.0.2.x</ocversion>
+	<author>slasoft / OSWorX</author>
+	<authorEmail>info@osworx.net</authorEmail>
+    <link>https://osworx.net</link>
+    <license>GNU/GPL</license>
+    <date>2018.11.13</date>
+    <description>Add metat tag noindex, follow to category, information, manufacturer and some special product pages</description>
+
+	<file path="system/library/document.php">
+		<operation>
+		<search>
+			<![CDATA[
+				private $scripts = array();
+			]]>
+		</search>
+		<add position="after">
+			<![CDATA[
+	/** + robot, noindex */
+	private $robots;
+
+	public function setRobots($value) {
+		$this->robots = $value;
+	}
+
+	public function getRobots() {
+		return $this->robots;
+	}
+			]]>
+		</add>
+		</operation>
+	</file>
+
+	<file path="catalog/controller/common/header.php">
+		<operation>
+			<search>
+				<![CDATA[
+					$data['base']
+				]]>
+			</search>
+			<add position="after">
+				<![CDATA[
+		/** + robot, noindex */
+		$data['robots'] = $this->document->getRobots();
+				]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/controller/product/{category,manufacturer,special}.php">
+		<operation>
+			<search>
+				<![CDATA[
+					$this->document->setTitle(
+				]]>
+			</search>
+			<add position="after">
+				<![CDATA[
+			/** + robot, noindex */
+			if( isset( $this->request->get['page'] ) || isset( $this->request->get['limit'] ) || isset( $this->request->get['order'] ) ) {
+				$this->document->setRobots( 'noindex,follow' );
+			}
+				]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/controller/account/{forgotten,login,register}.php|catalog/controller/checkout/{cart,checkout}.php|catalog/controller/information/information.php|catalog/controller/product/{compare,search}.php">
+		<operation>
+			<search>
+				<![CDATA[
+					$this->document->setTitle($this->language->get('heading_title'));
+				]]>
+			</search>
+			<add position="after">
+				<![CDATA[
+			/** + robot, noindex */
+			$this->document->setRobots( 'noindex,follow' );
+				]]>
+			</add>
+		</operation>
+	</file>
+
+   	<file path="catalog/view/theme/*/template/common/header.twig">
+		<operation>
+			<search>
+				<![CDATA[
+					<title>
+				]]>
+			</search>
+			<add position="before">
+				<![CDATA[
+{% if robots %}
+<meta name="robots" content="{{ robots }}" />
+{% endif %}
+				]]>
+			</add>
+		</operation>
+	</file>
+</modification>
